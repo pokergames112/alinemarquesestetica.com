@@ -1,0 +1,489 @@
+/* VARIÁVEIS DE COR E FONTE */
+:root {
+    --color-primary: #C07F83;       /* Rosa Suave/Terroso (Destaque) */
+    --color-secondary: #F3E2D8;     /* Pêssego Principal (Cor de Pele/Fundo Suave) */
+    --color-text-dark: #333333;     /* Texto principal escuro */
+    --color-light: #FFFFFF;         /* Branco Limpo */
+    --color-accent-gold: #A58F6A;   /* Ouro/Bronze para sofisticação */
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+/* ESTILOS GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-light);
+    color: var(--color-text-dark);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+/* --- TEXTO DE DESTAQUE --- */
+.text-destaque {
+    color: var(--color-primary);
+}
+
+.title-section {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+/* Estilos de Fundo */
+.bg-secondary {
+    background-color: var(--color-secondary);
+}
+
+/* --- BOTÕES (CTAs) --- */
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 30px; 
+    transition: background-color 0.3s, color 0.3s;
+    text-transform: uppercase;
+}
+
+.btn-primario {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    border: 2px solid var(--color-primary);
+}
+
+.btn-primario:hover {
+    background-color: var(--color-accent-gold);
+    border-color: var(--color-accent-gold);
+}
+
+/* -------------------- HEADER (BARRA DE NAVEGAÇÃO) -------------------- */
+#main-header {
+    width: 100%;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: var(--color-light); 
+    box-shadow: 0 2px 5px rgba(165, 143, 106, 0.2); 
+    transition: top 0.3s ease-in-out; 
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 18px 25px; 
+}
+
+.logo a {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.35em;
+    color: var(--color-primary); 
+}
+
+/* Menu de Links (Desktop) */
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li a {
+    padding: 10px 18px;
+    display: block;
+    color: var(--color-text-dark);
+}
+
+.nav-links li a:hover {
+    color: var(--color-primary); 
+}
+
+/* Estilo do botão de Contato no Navbar */
+.nav-contact a {
+    background-color: var(--color-secondary); 
+    color: var(--color-primary) !important; 
+    border-radius: 25px; 
+    padding: 8px 18px !important;
+    margin-left: 15px;
+    font-weight: 600 !important;
+    border: 1px solid var(--color-primary);
+}
+.nav-contact a:hover {
+    background-color: var(--color-primary);
+    color: var(--color-light) !important;
+}
+
+/* Hamburguer Button (Desktop: Escondido) */
+.hamburger {
+    display: none; 
+}
+
+
+/* -------------------- SEÇÃO HERO -------------------- */
+.hero-section {
+    min-height: 85vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 120px; 
+    background-color: var(--color-secondary); 
+}
+
+.hero-content {
+    max-width: 900px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    color: var(--color-text-dark);
+    margin-bottom: 0.3em;
+    line-height: 1.1;
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 2em;
+    color: #555;
+}
+
+
+/* -------------------- SEÇÃO DE TRATAMENTOS (CARDS/CARROSSEL) -------------------- */
+.treatments-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.treatments-section .title-section {
+    margin-bottom: 40px;
+}
+
+/* Estrutura do Card */
+.treatment-card {
+    display: flex;
+    flex-direction: column;
+    height: auto; 
+    background-color: var(--color-light);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Placeholder da Imagem (Container para a imagem) */
+.card-image-placeholder {
+    width: 100%;
+    height: 200px; 
+    background-color: #e0d9d4; /* Fundo que aparece se a imagem falhar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
+}
+
+/* **ESTILO PARA A IMAGEM DENTRO DO CARD (NOVO/ATUALIZADO)** */
+.card-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preencha a área, cortando se necessário */
+    display: block;
+}
+/* Estilo para o parágrafo de placeholder caso o HTML ainda o utilize */
+.card-image-placeholder p {
+    font-size: 0.9em;
+    color: var(--color-text-dark);
+    font-weight: 600;
+}
+
+
+.card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+}
+
+.card-content h3 {
+    font-family: var(--font-body);
+    font-size: 1.2em;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.card-content p {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 20px;
+    flex-grow: 1; 
+}
+
+.btn-card {
+    color: var(--color-primary);
+    font-weight: 600;
+    display: inline-block;
+    transition: color 0.3s;
+}
+
+.btn-card:hover {
+    color: var(--color-accent-gold);
+}
+
+/* Estilo para Card Único (Pós-operatório) */
+.single-treatment-card-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 0 20%; 
+}
+.treatment-card.single-card {
+    max-width: 600px;
+}
+
+/* -------------------- ESTILOS DO SWIPER -------------------- */
+.swiper-treatments {
+    padding: 0 60px; 
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--color-primary) !important;
+    transform: scale(0.8);
+    transition: color 0.3s;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    color: var(--color-accent-gold) !important;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--color-primary) !important;
+}
+
+/* -------------------- FOOTER -------------------- */
+.footer-section {
+    background-color: var(--color-text-dark); 
+    color: #ddd;
+    padding: 60px 0 20px 0;
+    font-size: 0.9em;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap; 
+}
+
+.footer-col h4 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1em;
+    color: var(--color-primary); 
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a, .footer-description {
+    color: #bbb;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: var(--color-secondary);
+}
+
+.footer-logo {
+    font-family: var(--font-heading);
+    font-size: 1.5em;
+    color: var(--color-light);
+    display: block;
+    margin-bottom: 15px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    color: #bbb;
+    margin-bottom: 10px;
+}
+
+.social-link .icon {
+    font-size: 1.2em;
+    margin-right: 10px;
+    color: var(--color-primary);
+}
+
+.footer-copyright {
+    text-align: center;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    color: #888;
+}
+
+/* -------------------- BOTÃO VOLTAR AO TOPO -------------------- */
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    font-size: 1.2em;
+    display: none; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+#scrollToTopBtn:hover {
+    background-color: var(--color-accent-gold);
+}
+
+
+/* -------------------- RESPONSIVIDADE MOBILE -------------------- */
+@media (max-width: 992px) {
+    /* Ajuste para tablets: mostra 2 slides */
+    .swiper-treatments {
+        padding: 0 40px; 
+    }
+}
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .logo a {
+        font-size: 1.1em;
+    }
+
+    /* Mostrar o Hamburguer e Esconder o Menu Padrão */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1010;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: var(--color-primary);
+        border-radius: 3px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* O Menu de Navegação */
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        background-color: var(--color-light);
+        flex-direction: column;
+        transition: height 0.3s ease-in-out;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+    
+    .nav-links.active {
+        height: auto; 
+        padding-bottom: 20px;
+        border-top: 1px solid var(--color-secondary);
+    }
+
+    .nav-links li {
+        text-align: center;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    /* Estilo do botão de Contato no mobile */
+    .nav-contact a {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    /* Hero Section Ajuste Mobile */
+    .hero-section {
+        min-height: 70vh;
+        padding-top: 100px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-content p {
+        font-size: 1.1em;
+    }
+
+    .btn-primario {
+        padding: 12px 25px;
+        font-size: 0.9em;
+    }
+
+    /* Carrossel Ajuste Mobile */
+    .swiper-treatments {
+        padding: 0 15px; 
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: none !important;
+    }
+    .single-treatment-card-wrapper {
+        padding: 0 15px;
+    }
+
+    /* Footer Ajuste Mobile */
+    .footer-grid {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-col {
+        margin-bottom: 20px;
+    }
+    .social-link {
+        justify-content: center;
+    }
+}
