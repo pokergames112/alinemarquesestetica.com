@@ -37,7 +37,7 @@ body {
 .title-section {
     font-family: var(--font-heading);
     color: var(--color-primary);
-    font-size: 3em;
+    font-size: 2.5em;
     margin-bottom: 20px;
 }
 
@@ -174,7 +174,7 @@ body {
     margin-bottom: 40px;
 }
 
-/* --- NOVO: GARANTE QUE TODOS OS SLIDES TENHAM A ALTURA DO MAIS ALTO --- */
+/* --- GARANTE QUE TODOS OS SLIDES TENHAM A ALTURA DO MAIS ALTO --- */
 .swiper-treatments .swiper-wrapper {
     align-items: stretch; 
 }
@@ -183,7 +183,7 @@ body {
 .treatment-card {
     display: flex;
     flex-direction: column;
-    /* CORREÇÃO: Força o card a preencher 100% da altura do swiper-slide */
+    /* Força o card a preencher 100% da altura do swiper-slide */
     height: 100%; 
     background-color: var(--color-light);
     border-radius: 10px;
@@ -257,13 +257,15 @@ body {
 /* Estilo para Card Único (Pós-operatório) */
 .single-treatment-card-wrapper {
     display: flex;
-    justify-content: center;
+    /* CORREÇÃO: Altera a direção para empilhar o H2 e o Card verticalmente */
+    flex-direction: column; 
+    /* CORREÇÃO: Centraliza os itens (H2 e Card) na horizontal */
+    align-items: center; 
     padding: 0; 
 }
 .treatment-card.single-card {
     max-width: 600px;
     width: 100%; 
-    /* Removemos o height: 100% daqui para que o card único se ajuste ao seu próprio conteúdo, já que não está em um carrossel flexbox. */
     height: auto; 
 }
 
@@ -466,6 +468,7 @@ body {
     .hero-content h1 {
         font-size: 2.5em;
     }
+
 
     .hero-content p {
         font-size: 1.1em;
