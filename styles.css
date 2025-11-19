@@ -1,10 +1,10 @@
 /* VARIÁVEIS DE COR E FONTE */
 :root {
-    --color-primary: #C07F83;       /* Rosa Suave/Terroso (Destaque) */
-    --color-secondary: #F3E2D8;     /* Pêssego Principal (Cor de Pele/Fundo Suave) */
-    --color-text-dark: #333333;     /* Texto principal escuro */
-    --color-light: #FFFFFF;         /* Branco Limpo */
-    --color-accent-gold: #A58F6A;   /* Ouro/Bronze para sofisticação */
+    --color-primary: #E2C79D;      
+    --color-secondary: #F8F8F8;     
+    --color-text-dark: #000016;    
+    --color-light: #FFFFFF;        /* Branco Limpo */
+    --color-accent-gold: #A58F6A;  
     
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Poppins', sans-serif;
@@ -43,7 +43,12 @@ body {
 
 /* Estilos de Fundo */
 .bg-secondary {
-    background-color: var(--color-secondary);
+    background-color: var(--color-secondary) !important;
+    background-image: radial-gradient(
+        circle at 50% 50%, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        transparent 70% 
+    );
 }
 
 /* --- BOTÕES (CTAs) --- */
@@ -61,11 +66,29 @@ body {
     background-color: var(--color-primary);
     color: var(--color-light);
     border: 2px solid var(--color-primary);
+    animation: pulse-gold 2s infinite ease-in-out; /* Aplica a animação: 2s de duração, repetição infinita, pulso suave */
+    transform: scale(1); /* Garante que o hover fique suave */
+    transition: all 0.3s ease;
 }
 
 .btn-primario:hover {
     background-color: var(--color-accent-gold);
     border-color: var(--color-accent-gold);
+    animation: none; /* Desativa o pulso */
+    transform: scale(1.05);
+}
+
+/* -------------------- ANIMAÇÃO PULSO DOURADO -------------------- */
+@keyframes pulse-gold {
+    0% {
+        box-shadow: 0 0 0 0 rgba(226, 199, 157, 0.7); /* Cor do Dourado com 70% de opacidade */
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(226, 199, 157, 0); /* Pulso se expande e fica transparente */
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(226, 199, 157, 0.7);
+    }
 }
 
 /* -------------------- HEADER (BARRA DE NAVEGAÇÃO) -------------------- */
@@ -87,12 +110,10 @@ body {
     padding: 18px 25px; 
 }
 
-.logo a {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1.35em;
-    color: var(--color-primary); 
-    white-space: nowrap;
+.logo-img {
+    height: 50px; /* Tamanho padrão da logo no desktop */
+    width: auto;
+    display: block;
 }
 
 /* Menu de Links (Desktop) */
@@ -137,17 +158,39 @@ body {
 /* -------------------- SEÇÃO HERO -------------------- */
 .hero-section {
     min-height: 85vh; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
     padding-top: 120px; 
     background-color: var(--color-secondary); 
 }
 
-.hero-content {
-    max-width: 900px;
+/* Novo container Flexbox para a imagem e o texto */
+.hero-container { 
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o conteúdo */
+    gap: 40px; /* Espaçamento entre a imagem e o texto */
     padding: 20px;
+    max-width: 1200px; /* Ajuste o max-width se necessário */
+    margin: 0 auto; /* Centraliza o container na tela */
+}
+
+/* Coluna da Imagem (2/5 do espaço) */
+.hero-image {
+    flex: 2; /* Ocupa 40% do espaço disponível */
+    max-width: 400px; /* Garante que a imagem não fique gigante */
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px; /* Para um visual mais suave */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Coluna do Conteúdo (3/5 do espaço) */
+.hero-content {
+    flex: 3; /* Ocupa 60% do espaço disponível */
+    text-align: right; /* Joga o texto para a direita */
+    padding: 0; /* Remove o padding extra que estava limitando a largura */
 }
 
 .hero-content h1 {
@@ -161,6 +204,49 @@ body {
     font-size: 1.3em;
     margin-bottom: 2em;
     color: #555;
+}
+/* FIM SEÇÃO HERO */
+
+/* -------------------- SEÇÃO SOBRE MIM -------------------- */
+.about-section {
+    padding: 80px 0;
+    background-color: var(--color-light); 
+}
+
+.about-container { 
+    display: flex;
+    align-items: center; 
+    /* CORREÇÃO: Removemos o 'row-reverse' para que fique Texto (esquerda) e Imagem (direita) */
+    gap: 40px; 
+}
+
+.about-image {
+    flex: 2; 
+    max-width: 400px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-content {
+    flex: 3; 
+    text-align: left; 
+}
+
+.about-content .title-section {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.about-content p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
 }
 
 
@@ -401,8 +487,8 @@ body {
         padding: 10px 15px;
     }
 
-    .logo a {
-        font-size: 1.1em;
+    .logo-img {
+        height: 50px; /* Logo um pouco menor no mobile */
     }
 
     /* Mostrar o Hamburguer e Esconder o Menu Padrão */
@@ -459,25 +545,73 @@ body {
         margin-top: 10px;
     }
 
-    /* Hero Section Ajuste Mobile */
+    /* Hero Section Ajuste Mobile ATUALIZADO */
     .hero-section {
-        min-height: 70vh;
+        min-height: auto; /* Deixa a altura se ajustar ao conteúdo */
         padding-top: 100px;
+        padding-bottom: 40px; /* Adiciona padding na parte de baixo */
     }
 
+    /* O NOVO CONTAINER DEVE SE TORNAR COLUNA NO MOBILE */
+    .hero-container {
+        flex-direction: column; /* Empilha a imagem e o texto */
+        gap: 30px; 
+    }
+
+    /* A IMAGEM VAI PARA CIMA DO TEXTO E OCUPA 100% DA LARGURA */
+    .hero-image {
+        flex: none; /* Ignora o flex: 2 para ocupar a largura total */
+        max-width: 100%; 
+        order: 1; /* Coloca a imagem primeiro (em cima) */
+    }
+
+    /* O CONTEÚDO (TEXTO) VAI PARA BAIXO E FICA CENTRALIZADO */
+    .hero-content {
+        flex: none; /* Ignora o flex: 3 */
+        text-align: center; /* Centraliza o texto no mobile */
+        order: 2; /* Coloca o texto em segundo (embaixo) */
+    }
+    
+    /* Reajuste de Fontes */
     .hero-content h1 {
-        font-size: 2.5em;
+        /* Usando 2.2em como sugerido anteriormente, ou 2.5em se preferir maior */
+        font-size: 2.2em; 
+        margin-bottom: 0.5em;
     }
-
 
     .hero-content p {
         font-size: 1.1em;
+        margin-bottom: 1.5em;
     }
 
     .btn-primario {
         padding: 12px 25px;
         font-size: 0.9em;
     }
+
+    .about-section {
+        padding: 50px 0;
+    }
+    
+    .about-container {
+        flex-direction: column; /* Empilha no mobile */
+        gap: 30px;
+    }
+
+    .about-image {
+        max-width: 100%; 
+        order: 1; /* Imagem fica em primeiro (topo) no mobile */
+    }
+
+    .about-content {
+        order: 2; /* Texto fica em segundo (abaixo da imagem) no mobile */
+        text-align: center;
+    }
+    
+    .about-content .title-section {
+        text-align: center;
+    }
+
 
     /* Carrossel Ajuste Mobile */
     .swiper-treatments {
