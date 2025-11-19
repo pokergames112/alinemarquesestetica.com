@@ -470,6 +470,85 @@ body {
     background-color: var(--color-accent-gold);
 }
 
+/* -------------------- ANIMAÇÃO PULSO VERDE (WhatsApp) -------------------- */
+@keyframes pulse-whatsapp {
+    0% {
+        /* Cor do WhatsApp (#25D366) com 70% de opacidade */
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); 
+    }
+    50% {
+        /* Pulso se expande e fica transparente */
+        box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); 
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+}
+
+
+/* -------------------- BOTÃO FLUTUANTE WHATSAPP -------------------- */
+.float-whatsapp {
+    /* Posição Fixa e Padrão */
+    position: fixed;
+    bottom: 25px; 
+    left: 25px; 
+    right: auto;
+    z-index: 1050; 
+
+    /* Tamanho e Forma (Redondo) */
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    
+    /* Cores: Fundo Dourado da sua marca */
+    background-color: white; 
+    color: var(--color-light); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    
+    /* Centralização do Ícone */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    
+    /* Transições e Animação */
+    transition: all 0.3s ease;
+    animation: pulse-whatsapp 2s infinite ease-in-out; /* NOVO PULSO VERDE APLICADO AQUI */
+    will-change: transform; 
+}
+
+/* Estilo para a imagem do WhatsApp (Garante visibilidade) */
+.float-whatsapp .whatsapp-img-float {
+    position: relative; 
+    z-index: 2; 
+    
+    width: 32px; 
+    height: 32px;
+    object-fit: contain; 
+}
+
+/* Estado Hover (Interrompe o pulso, cor dourada mais escura) */
+.float-whatsapp:hover {
+    background-color: green; /* Dourado mais escuro no hover */
+    transform: scale(1.1); 
+    animation: none; /* Interrompe o pulso */
+}
+
+/* Ajuste Mobile */
+@media (max-width: 768px) {
+    .float-whatsapp {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        left: 15px;
+        right: auto;
+    }
+    .float-whatsapp .whatsapp-img-float {
+        width: 50px;
+        height: 50px;
+    }
+}
+
 
 /* -------------------- RESPONSIVIDADE MOBILE -------------------- */
 @media (max-width: 992px) {
