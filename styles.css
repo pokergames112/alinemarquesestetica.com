@@ -470,18 +470,17 @@ body {
     background-color: var(--color-accent-gold);
 }
 
-/* -------------------- ANIMAÇÃO PULSO VERDE (WhatsApp) -------------------- */
+/* -------------------- ANIMAÇÃO PULSO VERDE (WhatsApp) - REVISADA -------------------- */
+/* A animação é responsável APENAS pelo box-shadow pulsante (o halo verde) */
 @keyframes pulse-whatsapp {
     0% {
-        /* Cor do WhatsApp (#25D366) com 70% de opacidade */
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); 
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); 
     }
     50% {
-        /* Pulso se expande e fica transparente */
-        box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); 
+        box-shadow: 0 0 0 12px rgba(37, 211, 102, 0.7); 
     }
     100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
     }
 }
 
@@ -500,9 +499,11 @@ body {
     height: 80px;
     border-radius: 50%;
     
-    /* Cores: Fundo Dourado da sua marca */
-    background-color: white; 
+    /* Cores: Definindo a cor de fundo BASE (Corrigido para evitar que sumisse) */
+    background-color: #25D366; 
     color: var(--color-light); 
+    
+    /* Box-shadow estático para a sombra padrão do botão */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     
     /* Centralização do Ícone */
@@ -513,7 +514,7 @@ body {
     
     /* Transições e Animação */
     transition: all 0.3s ease;
-    animation: pulse-whatsapp 2s infinite ease-in-out; /* NOVO PULSO VERDE APLICADO AQUI */
+    animation: pulse-whatsapp 2s infinite ease-in-out; /* O pulso do box-shadow */
     will-change: transform; 
 }
 
@@ -522,16 +523,17 @@ body {
     position: relative; 
     z-index: 2; 
     
-    width: 32px; 
-    height: 32px;
+    /* Ajuste o tamanho da imagem para caber bem no botão */
+    width: 40px; 
+    height: 40px;
     object-fit: contain; 
 }
 
-/* Estado Hover (Interrompe o pulso, cor dourada mais escura) */
+/* Estado Hover (MANTÉM o pulso e APLICA a ampliação suave) */
 .float-whatsapp:hover {
-    background-color: green; /* Dourado mais escuro no hover */
+    background-color: #128C7E; /* Verde escuro no hover */
     transform: scale(1.1); 
-    animation: none; /* Interrompe o pulso */
+    /* A animação 'pulse-whatsapp' NÃO é removida e CONTINUA */
 }
 
 /* Ajuste Mobile */
@@ -543,9 +545,10 @@ body {
         left: 15px;
         right: auto;
     }
+    /* Corrigindo o tamanho da imagem para dispositivos móveis */
     .float-whatsapp .whatsapp-img-float {
-        width: 50px;
-        height: 50px;
+        width: 25px;
+        height: 25px;
     }
 }
 
