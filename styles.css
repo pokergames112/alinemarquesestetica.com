@@ -384,6 +384,29 @@ body {
     font-size: 0.9em;
 }
 
+.footer-logo-container {
+    /* Usa Flexbox para alinhar a logo e o texto lado a lado */
+    display: flex;
+    align-items: center; /* Alinha verticalmente no centro */
+    gap: 15px; /* Espaço entre a logo e o texto */
+    margin-bottom: 20px; /* Adiciona espaço abaixo do bloco logo/texto */
+}
+
+.footer-img-logo {
+    /* Estilo da Imagem da Logo */
+    height: 70px; /* Defina a altura desejada para a logo */
+    width: auto;
+    display: block;
+}
+
+.footer-seo-tagline {
+    /* Estilo do Texto de SEO ao lado da logo */
+    font-family: var(--font-body); /* Ou a fonte que você preferir */
+    font-size: 2em; 
+    color: var(--color-light); /* Cor do texto no footer */
+    font-weight: 500;
+}
+
 .footer-grid {
     display: flex;
     justify-content: space-between;
@@ -417,14 +440,6 @@ body {
 
 .footer-col ul li a:hover {
     color: var(--color-secondary);
-}
-
-.footer-logo {
-    font-family: var(--font-heading);
-    font-size: 1.5em;
-    color: var(--color-light);
-    display: block;
-    margin-bottom: 15px;
 }
 
 .social-link {
@@ -718,5 +733,17 @@ body {
     }
     .social-link {
         justify-content: center;
+    }
+
+    /* NOVO AJUSTE MOBILE */
+    .footer-logo-container {
+        /* Centraliza o bloco inteiro no mobile */
+        justify-content: center; 
+        /* Se a tela for pequena, permite quebrar a linha */
+        flex-wrap: wrap; 
+    }
+    .footer-seo-tagline {
+        /* Ajusta o tamanho da fonte se necessário */
+        font-size: 0.9em; 
     }
 }
