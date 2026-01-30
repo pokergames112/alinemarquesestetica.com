@@ -3,7 +3,7 @@
     --color-primary: #E2C79D;      
     --color-secondary: #F8F8F8;     
     --color-text-dark: #000016;    
-    --color-light: #FFFFFF;        /* Branco Limpo */
+    --color-light: #FFFFFF;        
     --color-accent-gold: #A58F6A;  
     
     --font-heading: 'Playfair Display', serif;
@@ -29,36 +29,28 @@ body {
     padding: 0 25px;
 }
 
-/* --- TEXTO DE DESTAQUE --- */
-.text-destaque {
-    color: var(--color-primary);
-}
+.text-destaque { color: var(--color-primary); }
 
+/* --- AJUSTE: TÍTULOS MENORES --- */
 .title-section {
     font-family: var(--font-heading);
     color: var(--color-primary);
-    font-size: 2.5em;
+    font-size: 2.2em; /* Estava 2.5em */
     margin-bottom: 20px;
 }
 
-/* Estilos de Fundo */
 .bg-secondary {
     background-color: var(--color-secondary) !important;
-    background-image: radial-gradient(
-        circle at 50% 50%, 
-        rgba(255, 255, 255, 0.1) 0%, 
-        transparent 70% 
-    );
 }
 
-/* --- BOTÕES (CTAs) --- */
+/* BOTÕES */
 .btn {
     display: inline-block;
     padding: 15px 30px;
     text-decoration: none;
     font-weight: 600;
     border-radius: 30px; 
-    transition: background-color 0.3s, color 0.3s;
+    transition: all 0.3s ease;
     text-transform: uppercase;
 }
 
@@ -66,41 +58,30 @@ body {
     background-color: var(--color-primary);
     color: var(--color-light);
     border: 2px solid var(--color-primary);
-    animation: pulse-gold 2s infinite ease-in-out; /* Aplica a animação: 2s de duração, repetição infinita, pulso suave */
-    transform: scale(1); /* Garante que o hover fique suave */
-    transition: all 0.3s ease;
+    animation: pulse-gold 2s infinite ease-in-out;
 }
 
 .btn-primario:hover {
     background-color: var(--color-accent-gold);
-    border-color: var(--color-accent-gold);
-    animation: none; /* Desativa o pulso */
     transform: scale(1.05);
+    animation: none;
 }
 
-/* -------------------- ANIMAÇÃO PULSO DOURADO -------------------- */
 @keyframes pulse-gold {
-    0% {
-        box-shadow: 0 0 0 0 rgba(226, 199, 157, 0.7); /* Cor do Dourado com 70% de opacidade */
-    }
-    50% {
-        box-shadow: 0 0 0 10px rgba(226, 199, 157, 0); /* Pulso se expande e fica transparente */
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(226, 199, 157, 0.7);
-    }
+    0% { box-shadow: 0 0 0 0 rgba(226, 199, 157, 0.7); }
+    50% { box-shadow: 0 0 0 10px rgba(226, 199, 157, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(226, 199, 157, 0.7); }
 }
 
-/* -------------------- HEADER (BARRA DE NAVEGAÇÃO) -------------------- */
+/* HEADER */
 #main-header {
     width: 100%;
     position: fixed; 
     top: 0;
-    left: 0;
     z-index: 1000;
     background-color: var(--color-light); 
     box-shadow: 0 2px 5px rgba(165, 143, 106, 0.2); 
-    transition: top 0.3s ease-in-out; 
+    transition: top 0.3s ease;
 }
 
 .navbar {
@@ -110,31 +91,12 @@ body {
     padding: 18px 25px; 
 }
 
-.logo-img {
-    height: 50px; /* Tamanho padrão da logo no desktop */
-    width: auto;
-    display: block;
-}
+.logo-img { height: 50px; width: auto; }
 
-/* Menu de Links (Desktop) */
-.nav-links {
-    display: flex;
-    list-style: none;
-    align-items: center;
-}
+.nav-links { display: flex; list-style: none; align-items: center; }
+.nav-links li a { padding: 10px 18px; color: var(--color-text-dark); text-decoration: none; }
+.nav-links li a:hover { color: var(--color-primary); }
 
-.nav-links li a {
-    padding: 10px 18px;
-    display: block;
-    color: var(--color-text-dark);
-    white-space: nowrap;
-}
-
-.nav-links li a:hover {
-    color: var(--color-primary); 
-}
-
-/* Estilo do botão de Contato no Navbar */
 .nav-contact a {
     background-color: var(--color-secondary); 
     color: var(--color-primary) !important; 
@@ -144,325 +106,215 @@ body {
     font-weight: 600 !important;
     border: 1px solid var(--color-primary);
 }
-.nav-contact a:hover {
-    background-color: var(--color-primary);
-    color: var(--color-light) !important;
+
+.hamburger { display: none; }
+
+/* --- HERO SECTION: LETRAS AJUSTADAS --- */
+.hero-section { min-height: 85vh; padding-top: 120px; background-color: var(--color-secondary); }
+.hero-container { display: flex; align-items: center; gap: 40px; max-width: 1200px; margin: 0 auto; }
+.hero-image { flex: 2; max-width: 400px; }
+.hero-image img { width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+.hero-content { flex: 3; text-align: right; }
+.hero-content h1 { 
+    font-size: 2.8em; /* Estava 3.5em - Diminuído para Desktop */
+    line-height: 1.1; 
+    margin-bottom: 0.3em; 
 }
 
-/* Hamburguer Button (Desktop: Escondido) */
-.hamburger {
-    display: none; 
-}
+.hero-content p { font-size: 1.2em; margin-bottom: 2em; color: #555; }
 
-
-/* -------------------- SEÇÃO HERO -------------------- */
-.hero-section {
-    min-height: 85vh; 
-    padding-top: 120px; 
-    background-color: var(--color-secondary); 
-}
-
-/* Novo container Flexbox para a imagem e o texto */
-.hero-container { 
-    display: flex;
-    align-items: center; /* Centraliza verticalmente o conteúdo */
-    gap: 40px; /* Espaçamento entre a imagem e o texto */
-    padding: 20px;
-    max-width: 1200px; /* Ajuste o max-width se necessário */
-    margin: 0 auto; /* Centraliza o container na tela */
-}
-
-/* Coluna da Imagem (2/5 do espaço) */
-.hero-image {
-    flex: 2; /* Ocupa 40% do espaço disponível */
-    max-width: 400px; /* Garante que a imagem não fique gigante */
-}
-
-.hero-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 10px; /* Para um visual mais suave */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-/* Coluna do Conteúdo (3/5 do espaço) */
-.hero-content {
-    flex: 3; /* Ocupa 60% do espaço disponível */
-    text-align: right; /* Joga o texto para a direita */
-    padding: 0; /* Remove o padding extra que estava limitando a largura */
-}
-
-.hero-content h1 {
-    font-size: 3.5em;
-    color: var(--color-text-dark);
-    margin-bottom: 0.3em;
-    line-height: 1.1;
-}
-
-.hero-content p {
-    font-size: 1.3em;
-    margin-bottom: 2em;
-    color: #555;
-}
-/* FIM SEÇÃO HERO */
-
-/* -------------------- SEÇÃO SOBRE MIM -------------------- */
-.about-section {
-    padding: 80px 0;
-    background-color: var(--color-light); 
-}
-
-.about-container { 
-    display: flex;
-    align-items: center; 
-    /* CORREÇÃO: Removemos o 'row-reverse' para que fique Texto (esquerda) e Imagem (direita) */
-    gap: 40px; 
-}
-
-.about-image {
-    flex: 2; 
-    max-width: 400px;
-}
-
-.about-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.about-content {
-    flex: 3; 
-    text-align: left; 
-}
-
-.about-content .title-section {
-    margin-bottom: 25px;
-    text-align: left;
-}
+/* SOBRE MIM */
+.about-section { padding: 80px 0; }
+.about-container { display: flex; align-items: center; gap: 40px; }
+.about-image { flex: 2; max-width: 400px; }
+.about-image img { width: 100%; border-radius: 10px; }
+.about-content { flex: 3; text-align: left; }
 
 .about-content p {
     font-size: 1.1em;
     line-height: 1.6;
-    margin-bottom: 15px;
+    margin-bottom: 25px; /* ISSO VAI EMPURRAR O BOTÃO PARA BAIXO */
 }
 
-
-/* -------------------- SEÇÃO DE TRATAMENTOS (CARDS/CARROSSEL) -------------------- */
-.treatments-section {
-    padding: 80px 0;
-    text-align: center;
+/* Caso queira garantir que o botão tenha seu próprio espaço: */
+.about-content .btn {
+    margin-top: 10px; 
 }
 
-.treatments-section .title-section {
-    margin-bottom: 40px;
-}
-
-/* --- GARANTE QUE TODOS OS SLIDES TENHAM A ALTURA DO MAIS ALTO --- */
-.swiper-treatments .swiper-wrapper {
-    align-items: stretch; 
-}
-
-/* Estrutura do Card */
+/* TRATAMENTOS */
+.treatments-section { padding: 80px 0; text-align: center; }
 .treatment-card {
-    display: flex;
-    flex-direction: column;
-    /* Força o card a preencher 100% da altura do swiper-slide */
-    height: 100%; 
-    background-color: var(--color-light);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    margin-bottom: 20px;
-    text-align: left;
+    display: flex; flex-direction: column; height: 100%;
+    background: var(--color-light); border-radius: 10px; overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08); text-align: left;
 }
+.card-image-placeholder { width: 100%; height: 200px; overflow: hidden; }
+.card-image-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+.card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
 
-/* Placeholder da Imagem (Container para a imagem) */
-.card-image-placeholder {
-    width: 100%;
-    height: 200px; 
-    background-color: #e0d9d4; /* Fundo que aparece se a imagem falhar */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden; 
-}
+/* SWIPER SETAS */
+.swiper-button-next, .swiper-button-prev { color: var(--color-primary) !important; }
+.swiper-pagination-bullet-active { background-color: var(--color-primary) !important; }
 
-/* ESTILO PARA A IMAGEM DENTRO DO CARD */
-.card-image-placeholder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Garante que a imagem preencha a área, cortando se necessário */
-    display: block;
-}
-/* Estilo para o parágrafo de placeholder caso o HTML ainda o utilize */
-.card-image-placeholder p {
-    font-size: 0.9em;
-    color: var(--color-text-dark);
-    font-weight: 600;
-}
-
-
-.card-content {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    /* Já garante que o conteúdo ocupe o espaço restante no card */
-    flex-grow: 1; 
-}
-
-.card-content h3 {
-    font-family: var(--font-body);
-    font-size: 1.2em;
-    color: var(--color-primary);
-    margin-bottom: 10px;
-    font-weight: 600;
-}
-
-.card-content p {
-    font-size: 0.9em;
-    color: #555;
-    margin-bottom: 20px;
-    /* Já garante que o parágrafo empurre o botão para baixo */
-    flex-grow: 1; 
-}
-
-.btn-card {
-    color: var(--color-primary);
-    font-weight: 600;
-    display: inline-block;
-    transition: color 0.3s;
-}
-
-.btn-card:hover {
-    color: var(--color-accent-gold);
-}
-
-/* Estilo para Card Único (Pós-operatório) */
-.single-treatment-card-wrapper {
-    display: flex;
-    /* CORREÇÃO: Altera a direção para empilhar o H2 e o Card verticalmente */
-    flex-direction: column; 
-    /* CORREÇÃO: Centraliza os itens (H2 e Card) na horizontal */
-    align-items: center; 
-    padding: 0; 
-}
-.treatment-card.single-card {
-    max-width: 600px;
-    width: 100%; 
-    height: auto; 
-}
-
-/* -------------------- ESTILOS DO SWIPER -------------------- */
-.swiper-treatments {
-    padding: 0 60px; 
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-    color: var(--color-primary) !important;
-    transform: scale(0.8);
-    transition: color 0.3s;
-}
-
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-    color: var(--color-accent-gold) !important;
-}
-
-.swiper-pagination-bullet-active {
-    background-color: var(--color-primary) !important;
-}
-
-/* -------------------- FOOTER -------------------- */
+/* -------------------- FOOTER (CORREÇÃO DOS LINKS AZUIS) -------------------- */
 .footer-section {
     background-color: var(--color-text-dark); 
     color: #ddd;
-    padding: 60px 0 20px 0;
+    padding: 60px 0 0 0;
     font-size: 0.9em;
 }
 
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr; 
+    gap: 30px;
+    margin-bottom: 40px;
+    align-items: start;
+}
+
+.footer-img-logo { height: 60px; width: auto; display: block; }
+.footer-col h4 { color: var(--color-primary); font-weight: 600; margin-bottom: 20px; text-transform: uppercase; }
+
+/* Forçando a cor dos links para não ficarem azuis */
+.footer-col ul li a, .social-link { 
+    color: #bbb !important; 
+    text-decoration: none !important; 
+    transition: 0.3s; 
+}
+.footer-col ul li a:hover, .social-link:hover { color: var(--color-primary) !important; }
+
+.social-link { display: flex; align-items: center; margin-bottom: 12px; }
+.social-link .icon { margin-right: 10px; color: var(--color-primary); }
+
+.map-container { width: 100%; border-radius: 8px; overflow: hidden; margin-top: 10px; }
+
+/* COPYRIGHT E PRIME RANK */
+.footer-copyright { border-top: 1px solid #333; padding: 20px 0; color: #777; margin-top: 20px; text-align: center; }
+.copyright-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+.developer-info { display: flex; align-items: center; gap: 10px; }
+
+.developer-info a {
+    display: flex !important;
+    align-items: center !important;
+    width: 90px !important;
+}
+
+.logo-developer {
+    width: 100% !important;
+    height: auto !important;
+    filter: grayscale(100%) brightness(1.5);
+    transition: 0.3s;
+}
+
+.logo-developer:hover { filter: none; transform: scale(1.1); }
+
+/* -------------------- RESPONSIVIDADE -------------------- */
+@media (max-width: 1024px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+/* MENU HAMBÚRGUER MAIS ELEGANTE */
+    .hamburger { 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: space-around; /* Espaçamento mais harmônico */
+        width: 28px; 
+        height: 20px; 
+        cursor: pointer; 
+        background: none;
+        border: none;
+        padding: 0;
+        z-index: 1100;
+    }
+
+    .hamburger span { 
+        width: 100%; 
+        height: 2px; /* Linha mais fina = Mais luxo */
+        background-color: var(--color-primary); 
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+
+    /* Ajuste para a linha do meio ser um pouco menor (estilo moderno) */
+    .hamburger span:nth-child(2) {
+        width: 70%;
+        align-self: flex-end; /* Alinhada à direita */
+    }
+    
+    /* MENU MOBILE (DROPDOWN) */
+    .nav-links { 
+        position: absolute; 
+        top: 100%; 
+        left: 0; 
+        width: 100%; 
+        height: 0; 
+        overflow: hidden; 
+        background: rgba(255, 255, 255, 0.98); /* Leve transparência */
+        flex-direction: column; 
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Animação suave */
+        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        border-top: 1px solid rgba(226, 199, 157, 0.2);
+    }
+
+    .nav-links.active { 
+        height: auto; 
+        padding: 30px 0; 
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: 0.3s;
+    }
+
+    .nav-links.active li {
+        opacity: 1;
+        transform: translateY(0);
+        margin-bottom: 15px;
+    }
+
+    .hero-container, .about-container { flex-direction: column; text-align: center; gap: 30px; }
+    .hero-content { text-align: center; order: 2; }
+    .hero-content h1 { font-size: 2.2em; }
+    .hero-image { order: 1; width: 100%; max-width: 320px; margin: 0 auto; }
+    .hero-image { order: 1; width: 100%; }
+
+    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+
+    /* Container da Logo no Footer */
 .footer-logo-container {
-    /* Usa Flexbox para alinhar a logo e o texto lado a lado */
     display: flex;
-    align-items: center; /* Alinha verticalmente no centro */
-    gap: 15px; /* Espaço entre a logo e o texto */
-    margin-bottom: 20px; /* Adiciona espaço abaixo do bloco logo/texto */
+    flex-direction: column;
+    align-items: center;      /* CENTRALIZA A LOGO */
+    text-align: center;       /* CENTRALIZA O TEXTO ABAIXO DA LOGO */
+    gap: 15px;
+    margin-bottom: 30px;
+    grid-column: 1 / -1;      /* FAZ A LOGO OCUPAR A LARGURA TODA ACIMA DAS COLUNAS */
 }
 
 .footer-img-logo {
-    /* Estilo da Imagem da Logo */
-    height: 70px; /* Defina a altura desejada para a logo */
+    height: 70px;             /* Ajuste o tamanho se achar pequeno */
     width: auto;
     display: block;
 }
 
 .footer-seo-tagline {
-    /* Estilo do Texto de SEO ao lado da logo */
-    font-family: var(--font-body); /* Ou a fonte que você preferir */
-    font-size: 2em; 
-    color: var(--color-light); /* Cor do texto no footer */
-    font-weight: 500;
-}
-
-.footer-grid {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    margin-bottom: 40px;
-    flex-wrap: wrap; 
-}
-
-.footer-col h4 {
     font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 1em;
-    color: var(--color-primary); 
-    margin-bottom: 20px;
-    text-transform: uppercase;
+    font-size: 1.1em;
+    color: var(--color-light);
+    max-width: 600px;         /* Limita a largura para o texto não ficar esticado */
+    margin: 0 auto;           /* Centraliza o bloco de texto */
+    line-height: 1.4;
+}
+    .copyright-content { flex-direction: column; }
+    .developer-info a { width: 80px !important; margin-top: 10px; }
 }
 
-.footer-col ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-col ul li {
-    margin-bottom: 10px;
-}
-
-.footer-col ul li a, .footer-description {
-    color: #bbb;
-    transition: color 0.3s;
-}
-
-.footer-col ul li a:hover {
-    color: var(--color-secondary);
-}
-
-.social-link {
-    display: flex;
-    align-items: center;
-    color: #bbb;
-    margin-bottom: 10px;
-}
-
-.social-link .icon {
-    font-size: 1.2em;
-    margin-right: 10px;
-    color: var(--color-primary);
-}
-
-.footer-copyright {
-    text-align: center;
-    border-top: 1px solid #444;
-    padding-top: 20px;
-    color: #888;
-}
-
-/* -------------------- BOTÃO VOLTAR AO TOPO -------------------- */
+/* -------------------- BOTÕES FLUTUANTES (SUBIR SUMIU AQUI) -------------------- */
 #scrollToTopBtn {
     position: fixed;
     bottom: 30px;
@@ -476,274 +328,25 @@ body {
     height: 45px;
     cursor: pointer;
     font-size: 1.2em;
-    display: none; 
+    display: none; /* O JS controla o aparecimento, mas ele precisa existir no CSS */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s;
+    transition: 0.3s;
 }
 
-#scrollToTopBtn:hover {
-    background-color: var(--color-accent-gold);
-}
+#scrollToTopBtn:hover { background-color: var(--color-accent-gold); }
 
-/* -------------------- ANIMAÇÃO PULSO VERDE (WhatsApp) - REVISADA -------------------- */
-/* A animação é responsável APENAS pelo box-shadow pulsante (o halo verde) */
-@keyframes pulse-whatsapp {
-    0% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); 
-    }
-    50% {
-        box-shadow: 0 0 0 12px rgba(37, 211, 102, 0.7); 
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-    }
-}
-
-
-/* -------------------- BOTÃO FLUTUANTE WHATSAPP -------------------- */
 .float-whatsapp {
-    /* Posição Fixa e Padrão */
-    position: fixed;
-    bottom: 25px; 
-    left: 25px; 
-    right: auto;
-    z-index: 1050; 
-
-    /* Tamanho e Forma (Redondo) */
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    
-    /* Cores: Definindo a cor de fundo BASE (Corrigido para evitar que sumisse) */
-    background-color: #25D366; 
-    color: var(--color-light); 
-    
-    /* Box-shadow estático para a sombra padrão do botão */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    
-    /* Centralização do Ícone */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    
-    /* Transições e Animação */
-    transition: all 0.3s ease;
-    animation: pulse-whatsapp 2s infinite ease-in-out; /* O pulso do box-shadow */
-    will-change: transform; 
+    position: fixed; bottom: 25px; left: 25px; z-index: 1050;
+    width: 60px; height: 60px; background: #25D366; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    animation: pulse-whatsapp 2s infinite;
 }
 
-/* Estilo para a imagem do WhatsApp (Garante visibilidade) */
-.float-whatsapp .whatsapp-img-float {
-    position: relative; 
-    z-index: 2; 
-    
-    /* Ajuste o tamanho da imagem para caber bem no botão */
-    width: 40px; 
-    height: 40px;
-    object-fit: contain; 
-}
+.float-whatsapp img { width: 35px; height: 35px; }
 
-/* Estado Hover (MANTÉM o pulso e APLICA a ampliação suave) */
-.float-whatsapp:hover {
-    background-color: #128C7E; /* Verde escuro no hover */
-    transform: scale(1.1); 
-    /* A animação 'pulse-whatsapp' NÃO é removida e CONTINUA */
-}
-
-/* Ajuste Mobile */
-@media (max-width: 768px) {
-    .float-whatsapp {
-        width: 50px;
-        height: 50px;
-        bottom: 15px;
-        left: 15px;
-        right: auto;
-    }
-    /* Corrigindo o tamanho da imagem para dispositivos móveis */
-    .float-whatsapp .whatsapp-img-float {
-        width: 25px;
-        height: 25px;
-    }
-}
-
-
-/* -------------------- RESPONSIVIDADE MOBILE -------------------- */
-@media (max-width: 992px) {
-    /* Ajuste para tablets: mostra 2 slides */
-    .swiper-treatments {
-        padding: 0 40px; 
-    }
-}
-@media (max-width: 768px) {
-    .container {
-        padding: 0 15px;
-    }
-    
-    .navbar {
-        padding: 10px 15px;
-    }
-
-    .logo-img {
-        height: 50px; /* Logo um pouco menor no mobile */
-    }
-
-    /* Mostrar o Hamburguer e Esconder o Menu Padrão */
-    .hamburger {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        width: 30px;
-        height: 25px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        z-index: 1010;
-    }
-
-    .hamburger span {
-        display: block;
-        width: 100%;
-        height: 3px;
-        background-color: var(--color-primary);
-        border-radius: 3px;
-        transition: all 0.3s ease-in-out;
-    }
-
-    /* O Menu de Navegação */
-    .nav-links {
-        position: absolute;
-        top: 100%;
-        right: 0;
-        width: 100%;
-        height: 0;
-        overflow: hidden;
-        background-color: var(--color-light);
-        flex-direction: column;
-        transition: height 0.3s ease-in-out;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    }
-    
-    .nav-links.active {
-        height: auto; 
-        padding-bottom: 20px;
-        border-top: 1px solid var(--color-secondary);
-    }
-
-    .nav-links li {
-        text-align: center;
-        width: 100%;
-        padding: 10px 0;
-    }
-
-    /* Estilo do botão de Contato no mobile */
-    .nav-contact a {
-        margin-left: 0;
-        margin-top: 10px;
-    }
-
-    /* Hero Section Ajuste Mobile ATUALIZADO */
-    .hero-section {
-        min-height: auto; /* Deixa a altura se ajustar ao conteúdo */
-        padding-top: 100px;
-        padding-bottom: 40px; /* Adiciona padding na parte de baixo */
-    }
-
-    /* O NOVO CONTAINER DEVE SE TORNAR COLUNA NO MOBILE */
-    .hero-container {
-        flex-direction: column; /* Empilha a imagem e o texto */
-        gap: 30px; 
-    }
-
-    /* A IMAGEM VAI PARA CIMA DO TEXTO E OCUPA 100% DA LARGURA */
-    .hero-image {
-        flex: none; /* Ignora o flex: 2 para ocupar a largura total */
-        max-width: 100%; 
-        order: 1; /* Coloca a imagem primeiro (em cima) */
-    }
-
-    /* O CONTEÚDO (TEXTO) VAI PARA BAIXO E FICA CENTRALIZADO */
-    .hero-content {
-        flex: none; /* Ignora o flex: 3 */
-        text-align: center; /* Centraliza o texto no mobile */
-        order: 2; /* Coloca o texto em segundo (embaixo) */
-    }
-    
-    /* Reajuste de Fontes */
-    .hero-content h1 {
-        /* Usando 2.2em como sugerido anteriormente, ou 2.5em se preferir maior */
-        font-size: 2.2em; 
-        margin-bottom: 0.5em;
-    }
-
-    .hero-content p {
-        font-size: 1.1em;
-        margin-bottom: 1.5em;
-    }
-
-    .btn-primario {
-        padding: 12px 25px;
-        font-size: 0.9em;
-    }
-
-    .about-section {
-        padding: 50px 0;
-    }
-    
-    .about-container {
-        flex-direction: column; /* Empilha no mobile */
-        gap: 30px;
-    }
-
-    .about-image {
-        max-width: 100%; 
-        order: 1; /* Imagem fica em primeiro (topo) no mobile */
-    }
-
-    .about-content {
-        order: 2; /* Texto fica em segundo (abaixo da imagem) no mobile */
-        text-align: center;
-    }
-    
-    .about-content .title-section {
-        text-align: center;
-    }
-
-
-    /* Carrossel Ajuste Mobile */
-    .swiper-treatments {
-        padding: 0 15px; 
-    }
-    .swiper-button-next,
-    .swiper-button-prev {
-        display: none !important;
-    }
-    /* Pós-operatório no mobile: OK */
-    .single-treatment-card-wrapper {
-        padding: 0; 
-    }
-
-    /* Footer Ajuste Mobile */
-    .footer-grid {
-        flex-direction: column;
-        text-align: center;
-    }
-    .footer-col {
-        margin-bottom: 20px;
-    }
-    .social-link {
-        justify-content: center;
-    }
-
-    /* NOVO AJUSTE MOBILE */
-    .footer-logo-container {
-        /* Centraliza o bloco inteiro no mobile */
-        justify-content: center; 
-        /* Se a tela for pequena, permite quebrar a linha */
-        flex-wrap: wrap; 
-    }
-    .footer-seo-tagline {
-        /* Ajusta o tamanho da fonte se necessário */
-        font-size: 0.9em; 
-    }
+@keyframes pulse-whatsapp {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
