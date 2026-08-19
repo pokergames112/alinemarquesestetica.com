@@ -287,16 +287,20 @@ body {
     display: flex !important;
     align-items: center !important;
     width: 90px !important;
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .logo-developer {
     width: 100% !important;
     height: auto !important;
-    filter: grayscale(100%) brightness(1.5);
-    transition: 0.3s;
+    filter: none;
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), filter 0.35s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.logo-developer:hover { filter: none; transform: scale(1.1); }
+.developer-info a:hover .logo-developer {
+    transform: translateY(-3px) scale(1.08);
+    filter: drop-shadow(0 4px 12px rgba(226, 199, 157, 0.5)) brightness(1.08);
+}
 
 /* -------------------- RESPONSIVIDADE -------------------- */
 @media (max-width: 1024px) {
