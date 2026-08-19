@@ -144,14 +144,103 @@ body {
 
 /* TRATAMENTOS */
 .treatments-section { padding: 80px 0; text-align: center; }
+
+.facial-swiper {
+    padding: 20px 10px 45px 10px !important;
+}
+
 .treatment-card {
     display: flex; flex-direction: column; height: 100%;
-    background: var(--color-light); border-radius: 10px; overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08); text-align: left;
+    background: var(--color-light); border-radius: 12px; overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06); text-align: left;
+    border: 1px solid rgba(226, 199, 157, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.card-image-placeholder { width: 100%; height: 200px; overflow: hidden; }
-.card-image-placeholder img { width: 100%; height: 100%; object-fit: cover; }
-.card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+
+.treatment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(165, 143, 106, 0.2);
+}
+
+.card-image-placeholder { width: 100%; height: 230px; overflow: hidden; position: relative; }
+.card-image-placeholder img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.treatment-card:hover .card-image-placeholder img { transform: scale(1.05); }
+
+.card-content { padding: 25px 20px; flex-grow: 1; display: flex; flex-direction: column; }
+.card-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.35em;
+    color: var(--color-text-dark);
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+.card-content p {
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ÁREAS TRATADAS (PREENCHIMENTO) */
+.areas-title {
+    font-size: 0.85em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-accent-gold);
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+.areas-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0;
+    list-style: none;
+}
+
+.area-pill {
+    background-color: var(--color-secondary);
+    color: var(--color-text-dark);
+    border: 1px solid var(--color-primary);
+    font-size: 0.78em;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-weight: 500;
+}
+
+/* SEÇÃO PLANEJAMENTO INDIVIDUALIZADO */
+.planning-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #FAF6F0 0%, #F5EFEB 100%);
+    text-align: center;
+    border-top: 1px solid rgba(226, 199, 157, 0.3);
+    border-bottom: 1px solid rgba(226, 199, 157, 0.3);
+}
+
+.planning-box {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--color-light);
+    padding: 45px 35px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(165, 143, 106, 0.12);
+    border: 1px solid var(--color-primary);
+}
+
+.planning-box h2 {
+    font-size: 2.2em;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
+}
+
+.planning-box p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 25px;
+}
 
 /* SWIPER SETAS */
 .swiper-button-next, .swiper-button-prev { color: var(--color-primary) !important; }

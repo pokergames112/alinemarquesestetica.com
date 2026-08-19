@@ -99,23 +99,4 @@ document.addEventListener('DOMContentLoaded', () => {
             prevEl: '.prev-facial',
         },
     });
-
-    // 4.2. CARROSSEL CORPORAL
-    new Swiper('.corporal-swiper', {
-        loop: true, 
-        autoplay: autoplayConfig,
-
-        slidesPerView: 1,
-        spaceBetween: 20,
-        breakpoints: responsiveBreakpoints,
-
-        pagination: {
-            el: '.pagination-corporal',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.next-corporal',
-            prevEl: '.prev-corporal',
-        },
-    });
 });
