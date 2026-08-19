@@ -242,9 +242,72 @@ body {
     margin-bottom: 25px;
 }
 
-/* SWIPER SETAS */
-.swiper-button-next, .swiper-button-prev { color: var(--color-primary) !important; }
-.swiper-pagination-bullet-active { background-color: var(--color-primary) !important; }
+/* SWIPER SETAS CUSTOMIZADAS E POSICIONAMENTO */
+.facial-swiper {
+    position: relative;
+    padding: 10px 55px 50px 55px !important;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: var(--color-primary) !important;
+    background-color: rgba(255, 255, 255, 0.95);
+    width: 46px !important;
+    height: 46px !important;
+    border-radius: 50%;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    border: 1.5px solid var(--color-primary);
+    transition: all 0.3s ease;
+    z-index: 20;
+    top: 45% !important;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 18px !important;
+    font-weight: bold;
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover {
+    background-color: var(--color-primary);
+    color: var(--color-light) !important;
+    transform: scale(1.08);
+}
+
+.swiper-button-prev { left: 0px !important; }
+.swiper-button-next { right: 0px !important; }
+
+.swiper-pagination-bullet {
+    background: #ccc;
+    opacity: 0.7;
+    width: 10px;
+    height: 10px;
+    transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--color-primary) !important;
+    opacity: 1;
+    width: 24px;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .facial-swiper {
+        padding: 10px 25px 55px 25px !important;
+    }
+    
+    .swiper-button-next, .swiper-button-prev {
+        width: 36px !important;
+        height: 36px !important;
+        top: 40% !important;
+    }
+    
+    .swiper-button-next:after, .swiper-button-prev:after {
+        font-size: 13px !important;
+    }
+
+    .swiper-button-prev { left: 0px !important; }
+    .swiper-button-next { right: 0px !important; }
+}
 
 /* -------------------- FOOTER (CORREÇÃO DOS LINKS AZUIS) -------------------- */
 .footer-section {
