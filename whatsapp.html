@@ -41,10 +41,10 @@
             url += "&text=" + encodeURIComponent(text);
         }
 
-        // Aguarda 500ms para garantir que as tags disparem no GTM e redireciona
+        // Aguarda 2000ms para garantir que as tags disparem no GTM e o Tag Assistant consiga ler
         setTimeout(function() {
             window.location.href = url;
-        }, 500);
+        }, 2000);
     </script>
 </body>
 </html>
